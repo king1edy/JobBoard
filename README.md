@@ -1,7 +1,4 @@
 # Dot NET Task using dotnet 8.0 and CosmoDB
-
-Certainly! Here's a comprehensive documentation for the entire JobBoard project, including the main application and the test project:
-
 ---
 
 # JobBoard Documentation
