@@ -34,7 +34,7 @@ The JobBoard project depends on the following libraries and frameworks:
 
 ### Configuration
 
-The JobBoard application utilizes configuration settings stored in `appsettings.json` and environment variables. These settings include database connection strings, logging configuration, and other application-specific settings.
+The JobBoard application utilizes configuration settings stored in `appsettings.json` and or environment variables. These settings include database connection strings, logging configuration, and other application-specific settings.
 
 ### Testing
 
