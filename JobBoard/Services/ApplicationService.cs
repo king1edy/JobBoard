@@ -28,7 +28,7 @@ namespace JobBoard.Services
             try
             {
                 ApplicationForm form = Common.MapDtoToApplicationForm(application);
-                var resp = await _cosmosDbService.CreateItemAsync<ApplicationForm>(form, _containName2);
+                var resp = await _cosmosDbService.CreateItemAsync<ApplicationForm>(form, _containName);
             }
             catch (Exception e)
             {
@@ -45,7 +45,7 @@ namespace JobBoard.Services
             ApplicationFormDto formDto = new ApplicationFormDto();
             try
             {
-                var resp = await _cosmosDbService.GetItemAsync<ApplicationForm>(id, "/application", _containName2);
+                var resp = await _cosmosDbService.GetItemAsync<ApplicationForm>(id, "/application", _containName);
                 if (resp is null)
                     return null;
 

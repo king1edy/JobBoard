@@ -95,7 +95,7 @@ namespace JobBoard.Utility
                         Id = Guid.NewGuid().ToString(),
                         Type = q.Type.Type,
                     },
-                    Options = q.Options.Select(op => new QuestionOption()
+                    Options = q.Options is null ? null : q.Options.Select(op => new QuestionOption()
                     {
                         Id = Guid.NewGuid().ToString(),
                         Choice = op.Option
@@ -111,7 +111,7 @@ namespace JobBoard.Utility
                         Id = Guid.NewGuid().ToString(),
                         Type = q.Type.Type,
                     },
-                    Options = q.Options.Select(o => new QuestionOption()
+                    Options = q.Options is null ? null : q.Options.Select(o => new QuestionOption()
                     {
                         Id = o.Id,
                         Choice = o.Option
