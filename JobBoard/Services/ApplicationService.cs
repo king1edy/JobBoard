@@ -12,10 +12,11 @@ namespace JobBoard.Services
         private readonly ILogger _logger;
         string _containName = string.Empty;
 
-        public ApplicationService(ICosmosDbService cosmosDbService, IConfiguration configuration)
+        public ApplicationService(ICosmosDbService cosmosDbService, IConfiguration configuration, ILogger<ApplicationService> logger)
         {
             _cosmosDbService = cosmosDbService;
             _configuration = configuration;
+            _logger = logger;
 
             _containName = _configuration.GetSection("CosmoDB:ContainerName").Value;
         }

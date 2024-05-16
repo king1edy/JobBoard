@@ -16,7 +16,7 @@ namespace JobBoard.Services
         private readonly ILogger _logger;
         string _containName = string.Empty;
 
-        public QuestionService(ICosmosDbService cosmosDbService, IConfiguration configuration, ILogger logger)
+        public QuestionService(ICosmosDbService cosmosDbService, IConfiguration configuration, ILogger<QuestionService> logger)
         {
             _cosmosDbService = cosmosDbService;
             _configuration = configuration;

@@ -16,7 +16,7 @@ namespace JobBoard.Services
         private readonly string _connectionString;
         private readonly string _containerName;
 
-        public CosmosDbService(string databaseName, IConfiguration configuration)
+        public CosmosDbService(IConfiguration configuration)
         {
             _configuration = configuration;
             _connectionString = _configuration.GetSection("CosmoDB:ConnectionString").Value;
@@ -31,7 +31,7 @@ namespace JobBoard.Services
                 }
             };
             _cosmosClient = new CosmosClient(_connectionString, options);
-            var database = _cosmosClient.CreateDatabaseIfNotExistsAsync(databaseName).Result;
+            var database = _cosmosClient.CreateDatabaseIfNotExistsAsync(_databaseName).Result;
             Container = database.Database.CreateContainerIfNotExistsAsync(_containerName, "/id").Result;
         }
 

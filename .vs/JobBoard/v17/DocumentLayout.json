@@ -3,20 +3,36 @@
   "WorkspaceRootPath": "C:\\Users\\PRECISION 5560\\source\\repos\\JobBoard\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{56DF5B48-B274-491F-996B-33FB172C2072}|JobBoard\\JobBoard.csproj|c:\\users\\precision 5560\\source\\repos\\jobboard\\jobboard\\services\\applicationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{56DF5B48-B274-491F-996B-33FB172C2072}|JobBoard\\JobBoard.csproj|solutionrelative:jobboard\\services\\applicationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{56DF5B48-B274-491F-996B-33FB172C2072}|JobBoard\\JobBoard.csproj|c:\\users\\precision 5560\\source\\repos\\jobboard\\jobboard\\services\\questionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{56DF5B48-B274-491F-996B-33FB172C2072}|JobBoard\\JobBoard.csproj|solutionrelative:jobboard\\services\\questionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{56DF5B48-B274-491F-996B-33FB172C2072}|JobBoard\\JobBoard.csproj|c:\\users\\precision 5560\\source\\repos\\jobboard\\jobboard\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{56DF5B48-B274-491F-996B-33FB172C2072}|JobBoard\\JobBoard.csproj|solutionrelative:jobboard\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{56DF5B48-B274-491F-996B-33FB172C2072}|JobBoard\\JobBoard.csproj|c:\\users\\precision 5560\\source\\repos\\jobboard\\jobboard\\extensions\\servicecollectionextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{56DF5B48-B274-491F-996B-33FB172C2072}|JobBoard\\JobBoard.csproj|solutionrelative:jobboard\\extensions\\servicecollectionextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{56DF5B48-B274-491F-996B-33FB172C2072}|JobBoard\\JobBoard.csproj|c:\\users\\precision 5560\\source\\repos\\jobboard\\jobboard\\services\\cosmosdbservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{56DF5B48-B274-491F-996B-33FB172C2072}|JobBoard\\JobBoard.csproj|solutionrelative:jobboard\\services\\cosmosdbservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{56DF5B48-B274-491F-996B-33FB172C2072}|JobBoard\\JobBoard.csproj|c:\\users\\precision 5560\\source\\repos\\jobboard\\jobboard\\services\\interface\\icosmosdbservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{56DF5B48-B274-491F-996B-33FB172C2072}|JobBoard\\JobBoard.csproj|solutionrelative:jobboard\\services\\interface\\icosmosdbservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{56DF5B48-B274-491F-996B-33FB172C2072}|JobBoard\\JobBoard.csproj|c:\\users\\precision 5560\\source\\repos\\jobboard\\jobboard\\dtos\\answerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{56DF5B48-B274-491F-996B-33FB172C2072}|JobBoard\\JobBoard.csproj|solutionrelative:jobboard\\dtos\\answerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{56DF5B48-B274-491F-996B-33FB172C2072}|JobBoard\\JobBoard.csproj|c:\\users\\precision 5560\\source\\repos\\jobboard\\jobboard\\services\\applicationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{56DF5B48-B274-491F-996B-33FB172C2072}|JobBoard\\JobBoard.csproj|solutionrelative:jobboard\\services\\applicationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{56DF5B48-B274-491F-996B-33FB172C2072}|JobBoard\\JobBoard.csproj|c:\\users\\precision 5560\\source\\repos\\jobboard\\jobboard\\utility\\common.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{56DF5B48-B274-491F-996B-33FB172C2072}|JobBoard\\JobBoard.csproj|solutionrelative:jobboard\\utility\\common.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{56DF5B48-B274-491F-996B-33FB172C2072}|JobBoard\\JobBoard.csproj|c:\\users\\precision 5560\\source\\repos\\jobboard\\jobboard\\services\\interface\\icosmosdbservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{56DF5B48-B274-491F-996B-33FB172C2072}|JobBoard\\JobBoard.csproj|solutionrelative:jobboard\\services\\interface\\icosmosdbservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +42,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Bookmark",
@@ -42,7 +58,59 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ServiceCollectionExtensions.cs",
+              "DocumentMoniker": "C:\\Users\\PRECISION 5560\\source\\repos\\JobBoard\\JobBoard\\Extensions\\ServiceCollectionExtensions.cs",
+              "RelativeDocumentMoniker": "JobBoard\\Extensions\\ServiceCollectionExtensions.cs",
+              "ToolTip": "C:\\Users\\PRECISION 5560\\source\\repos\\JobBoard\\JobBoard\\Extensions\\ServiceCollectionExtensions.cs",
+              "RelativeToolTip": "JobBoard\\Extensions\\ServiceCollectionExtensions.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-16T07:43:27.438Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\PRECISION 5560\\source\\repos\\JobBoard\\JobBoard\\Program.cs",
+              "RelativeDocumentMoniker": "JobBoard\\Program.cs",
+              "ToolTip": "C:\\Users\\PRECISION 5560\\source\\repos\\JobBoard\\JobBoard\\Program.cs",
+              "RelativeToolTip": "JobBoard\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-16T07:38:48.996Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AnswerDto.cs",
+              "DocumentMoniker": "C:\\Users\\PRECISION 5560\\source\\repos\\JobBoard\\JobBoard\\Dtos\\AnswerDto.cs",
+              "RelativeDocumentMoniker": "JobBoard\\Dtos\\AnswerDto.cs",
+              "ToolTip": "C:\\Users\\PRECISION 5560\\source\\repos\\JobBoard\\JobBoard\\Dtos\\AnswerDto.cs",
+              "RelativeToolTip": "JobBoard\\Dtos\\AnswerDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-16T07:38:00.401Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Common.cs",
+              "DocumentMoniker": "C:\\Users\\PRECISION 5560\\source\\repos\\JobBoard\\JobBoard\\Utility\\Common.cs",
+              "RelativeDocumentMoniker": "JobBoard\\Utility\\Common.cs",
+              "ToolTip": "C:\\Users\\PRECISION 5560\\source\\repos\\JobBoard\\JobBoard\\Utility\\Common.cs",
+              "RelativeToolTip": "JobBoard\\Utility\\Common.cs",
+              "ViewState": "AQIAAHgAAAAAAAAAAAAgwKUAAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-16T07:04:07.806Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "ICosmosDbService.cs",
               "DocumentMoniker": "C:\\Users\\PRECISION 5560\\source\\repos\\JobBoard\\JobBoard\\Services\\Interface\\ICosmosDbService.cs",
               "RelativeDocumentMoniker": "JobBoard\\Services\\Interface\\ICosmosDbService.cs",
@@ -55,39 +123,39 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "CosmosDbService.cs",
               "DocumentMoniker": "C:\\Users\\PRECISION 5560\\source\\repos\\JobBoard\\JobBoard\\Services\\CosmosDbService.cs",
               "RelativeDocumentMoniker": "JobBoard\\Services\\CosmosDbService.cs",
               "ToolTip": "C:\\Users\\PRECISION 5560\\source\\repos\\JobBoard\\JobBoard\\Services\\CosmosDbService.cs",
               "RelativeToolTip": "JobBoard\\Services\\CosmosDbService.cs",
-              "ViewState": "AQIAACoAAAAAAAAAAAAAwFIAAAAdAAAA",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAqwB8AAAAOAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-16T06:18:17.757Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "QuestionService.cs",
               "DocumentMoniker": "C:\\Users\\PRECISION 5560\\source\\repos\\JobBoard\\JobBoard\\Services\\QuestionService.cs",
               "RelativeDocumentMoniker": "JobBoard\\Services\\QuestionService.cs",
               "ToolTip": "C:\\Users\\PRECISION 5560\\source\\repos\\JobBoard\\JobBoard\\Services\\QuestionService.cs",
               "RelativeToolTip": "JobBoard\\Services\\QuestionService.cs",
-              "ViewState": "AQIAAAQAAAAAAAAAAAAAABsAAAA/AAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-16T05:39:23.909Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "ApplicationService.cs",
               "DocumentMoniker": "C:\\Users\\PRECISION 5560\\source\\repos\\JobBoard\\JobBoard\\Services\\ApplicationService.cs",
               "RelativeDocumentMoniker": "JobBoard\\Services\\ApplicationService.cs",
               "ToolTip": "C:\\Users\\PRECISION 5560\\source\\repos\\JobBoard\\JobBoard\\Services\\ApplicationService.cs",
               "RelativeToolTip": "JobBoard\\Services\\ApplicationService.cs",
-              "ViewState": "AQIAABgAAAAAAAAAAAAYwFUAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-16T05:10:28.631Z",
               "EditorCaption": ""
