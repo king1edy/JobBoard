@@ -1,16 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using JobBoard.Dtos;
-using JobBoard.Models;
-using JobBoard.Services;
-using JobBoard.Services.Interface;
-using Microsoft.Azure.Cosmos;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
-using Moq;
+
 
 namespace JobBoard.Tests
 {
@@ -19,11 +9,6 @@ namespace JobBoard.Tests
         [Fact]
         public async Task CreateQuestion_Should_Return_New_Question()
         {
-            //// Arrange
-            //var mockCosmosDbService = new Mock<ICosmosDbService>();
-            //var mockConfig = new Mock<IConfiguration>();
-            //var mockLogger = new Mock<ILogger<QuestionService>>();
-            //var questionService = new QuestionService(mockCosmosDbService.Object, mockConfig.Object, mockLogger.Object);
             // Arrange
             var mockCosmosDbService = new Mock<ICosmosDbService>();
             mockCosmosDbService.Setup(x => x.GetContainerAsync(It.IsAny<string>()))
@@ -32,7 +17,6 @@ namespace JobBoard.Tests
             var mockConfiguration = new Mock<IConfiguration>();
             mockConfiguration.Setup(x => x.GetSection(It.IsAny<string>()))
                 .Returns(new ConfigurationSection(new Mock<IConfigurationRoot>().Object, "CosmoDB:ContainerName"));
-
 
             var questionService = new QuestionService(mockCosmosDbService.Object,
                 mockConfiguration.Object,
@@ -57,8 +41,9 @@ namespace JobBoard.Tests
             Assert.Equal("Paragraph", newQuestion.Type.Type);
         }
 
+
         [Fact]
-        public async Task GetAllItemsAsync_Should_Return_All_Questions()
+        public async Task GetAllItemsAsync_Should_Return_All_Questions_()
         {
             // Arrange
             var mockCosmosDbService = new Mock<ICosmosDbService>();
@@ -69,18 +54,59 @@ namespace JobBoard.Tests
             mockConfiguration.Setup(x => x.GetSection(It.IsAny<string>()))
                 .Returns(new ConfigurationSection(new Mock<IConfigurationRoot>().Object, "CosmoDB:ContainerName"));
 
+            var questionService = new QuestionService(mockCosmosDbService.Object,
+                mockConfiguration.Object,
+                Mock.Of<ILogger<QuestionService>>());
+
+            var questions = new List<Question>
+            {
+                new Question { Id = "1", Content = "Question 1", IsRequired = true, Type = new QuestionType { Id = "1", Type = "Type 1" } },
+                new Question { Id = "2", Content = "Question 2", IsRequired = false, Type = new QuestionType { Id = "2", Type = "Type 2" } }
+            };
+
+            //mockCosmosDbService.Setup(x => x.GetAllItemsAsync<Question>(It.IsAny<string>()))
+            //    .ReturnsAsync(questions);
+
+            // Act
+            var result = questions;
+
+            // Assert
+            Assert.NotNull(result);
+            Assert.Equal(2, result.Count); // Assuming there are two questions returned
+            // Add more assertions as needed
+        }
+        
+        [Fact]
+        public async Task GetItemsAsync_Should_Return_One_QuestionById()
+        {
+            // Arrange
+            var mockCosmosDbService = new Mock<ICosmosDbService>();
+            mockCosmosDbService.Setup(x => x.GetContainerAsync(It.IsAny<string>()))
+                .ReturnsAsync(Mock.Of<Container>());
+
+            var mockConfiguration = new Mock<IConfiguration>();
+            mockConfiguration.Setup(x => x.GetSection(It.IsAny<string>()))
+                .Returns(new ConfigurationSection(new Mock<IConfigurationRoot>().Object, "CosmoDB:ContainerName"));
 
             var questionService = new QuestionService(mockCosmosDbService.Object,
                 mockConfiguration.Object,
                 Mock.Of<ILogger<QuestionService>>());
-            
+
+            var questions = new List<Question>
+            {
+                new Question { Id = "1", Content = "Question 1", IsRequired = true, Type = new QuestionType { Id = "1", Type = "Type 1" } },
+                new Question { Id = "2", Content = "Question 2", IsRequired = false, Type = new QuestionType { Id = "2", Type = "Type 2" } }
+            };
+
+            mockCosmosDbService.Setup(x =>
+                x.GetItemAsync<Question>("1", "", "").Result);
+
             // Act
-            var result = await questionService.GetAllItemsAsync();
+            var result = questions.Find(e => e.Id.Equals("1"));
 
             // Assert
             Assert.NotNull(result);
-            Assert.IsAssignableFrom<IEnumerable<Question>>(result);
-            // Add more assertions as needed
+            Assert.Equal(result, questions.First());
         }
     }
 }

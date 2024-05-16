@@ -85,7 +85,7 @@ namespace JobBoard.Utility
                 FormId = Guid.NewGuid().ToString(),
                 ProgramTitle = model.ProgramTitle,
                 ProgramDescription = model.ProgramDescription,
-                Questions = model.Questions.Select(q => new Question()
+                Questions = model.Questions is null ? null : model.Questions.Select(q => new Question()
                 {
                     Id = Guid.NewGuid().ToString(),
                     IsRequired = q.IsRequired,
@@ -101,7 +101,7 @@ namespace JobBoard.Utility
                         Choice = op.Option
                     }).ToList(),
                 }).ToList(),
-                AdditionalQuestions = model.AdditionalQuestions.Select(q => new Question()
+                AdditionalQuestions = model.AdditionalQuestions is null ? null : model.AdditionalQuestions.Select(q => new Question()
                 {
                     Id = Guid.NewGuid().ToString(),
                     IsRequired = q.IsRequired,
@@ -129,7 +129,7 @@ namespace JobBoard.Utility
             {
                 ProgramTitle = model.ProgramTitle,
                 ProgramDescription = model.ProgramDescription,
-                Questions = model.Questions.Select(q => new QuestionDto()
+                Questions = model.Questions is null ? null : model.Questions.Select(q => new QuestionDto()
                 {
                     Id = q.Id,
                     Content = q.Content,
@@ -139,13 +139,13 @@ namespace JobBoard.Utility
                         Type = q.Type.Type,
                     },
                     IsRequired = q.IsRequired,
-                    Options = q.Options.Select(o => new QuestionOptionDto()
+                    Options = q.Options is null ? null : q.Options.Select(o => new QuestionOptionDto()
                     {
                         Id = o.Id,
                         Option = o.Choice
                     }).ToList()
                 }).ToList(),
-                AdditionalQuestions = model.AdditionalQuestions.Select(q => new QuestionDto()
+                AdditionalQuestions = model.AdditionalQuestions is null ? null : model.AdditionalQuestions.Select(q => new QuestionDto()
                 {
                     Id = q.Id,
                     Content = q.Content,
@@ -155,7 +155,7 @@ namespace JobBoard.Utility
                         Type = q.Type.Type,
                     },
                     IsRequired = q.IsRequired,
-                    Options = q.Options.Select(o => new QuestionOptionDto()
+                    Options = q.Options is null ? null : q.Options.Select(o => new QuestionOptionDto()
                     {
                         Id = o.Id,
                         Option = o.Choice
