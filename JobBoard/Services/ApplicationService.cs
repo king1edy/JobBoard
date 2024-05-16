@@ -11,6 +11,7 @@ namespace JobBoard.Services
         private readonly IConfiguration _configuration;
         private readonly ILogger _logger;
         string _containName = string.Empty;
+        string _containName2 = string.Empty;
 
         public ApplicationService(ICosmosDbService cosmosDbService, IConfiguration configuration, ILogger<ApplicationService> logger)
         {
@@ -19,6 +20,7 @@ namespace JobBoard.Services
             _logger = logger;
 
             _containName = _configuration.GetSection("CosmoDB:ContainerName").Value;
+            _containName2 = "ApplicationsContainer";
         }
 
         public async Task<ApplicationFormDto> SubmitApplication(ApplicationFormDto application)
@@ -26,7 +28,7 @@ namespace JobBoard.Services
             try
             {
                 ApplicationForm form = Common.MapDtoToApplicationForm(application);
-                var resp = await _cosmosDbService.CreateItemAsync<ApplicationForm>(form, _containName);
+                var resp = await _cosmosDbService.CreateItemAsync<ApplicationForm>(form, _containName2);
             }
             catch (Exception e)
             {
@@ -43,7 +45,7 @@ namespace JobBoard.Services
             ApplicationFormDto formDto = new ApplicationFormDto();
             try
             {
-                var resp = await _cosmosDbService.GetItemAsync<ApplicationForm>(id, "/application", _containName);
+                var resp = await _cosmosDbService.GetItemAsync<ApplicationForm>(id, "/application", _containName2);
                 if (resp is null)
                     return null;
 

@@ -63,7 +63,7 @@ namespace JobBoard.Utility
         {
             return new QuestionType()
             {
-                Id = model.Id,
+                Id = Guid.NewGuid().ToString(),
                 Type = model.Type
             };
         }
