@@ -1,6 +1,6 @@
 ﻿using JobBoard.Dtos;
 
-namespace JobBoard.Services
+namespace JobBoard.Services.Interface
 {
     public interface IQuestionService
     {
@@ -9,7 +9,7 @@ namespace JobBoard.Services
         Task CreateQuestionAsync(QuestionDto question);
         Task UpdateQuestionAsync(string id, QuestionDto question);
         Task DeleteQuestionAsync(string id);
-        
+
         Task<List<string>> GetQuestionTypesAsync();
         Task<List<QuestionTypeDto>> GetAllQuestionTypesAsync();
         Task CreateQuestionTypeAsync(QuestionTypeDto questionType);

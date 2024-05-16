@@ -1,4 +1,6 @@
-﻿namespace JobBoard.Dtos
+﻿using Newtonsoft.Json;
+
+namespace JobBoard.Dtos
 {
     public class QuestionTypeDto
     {
