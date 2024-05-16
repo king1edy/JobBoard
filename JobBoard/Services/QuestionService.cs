@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System.Collections.Generic;
+using System.Reflection;
 using Azure.Core;
 using JobBoard.Dtos;
 using JobBoard.Models;
@@ -29,7 +30,7 @@ namespace JobBoard.Services
         {
             List<Question> results = new List<Question>();
             var container = _cosmosDbService.GetContainerAsync(_containName).Result;
-             var query = container.GetItemQueryIterator<Question>(new QueryDefinition("SELECT * FROM c"));
+            var query = container.GetItemQueryIterator<Question>(new QueryDefinition("SELECT * FROM c"));
             while (query.HasMoreResults)
             {
                 var response = await query.ReadNextAsync();
@@ -139,12 +140,37 @@ namespace JobBoard.Services
 
         public async Task<List<QuestionTypeDto>> GetAllQuestionTypesAsync()
         {
-            throw new NotImplementedException();
+            try
+            {
+                List<QuestionTypeDto> results = new List<QuestionTypeDto>();
+                var container = _cosmosDbService.GetContainerAsync(_containName).Result;
+                var query = container.GetItemQueryIterator<QuestionType>(new QueryDefinition("SELECT * FROM c"));
+                while (query.HasMoreResults)
+                {
+                    var response = await query.ReadNextAsync();
+                    results.AddRange(Common.MapQuestionTypesToDtos(response.ToList()));
+                }
+                return results;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                throw;
+            }
         }
 
-        public async Task CreateQuestionTypeAsync(QuestionTypeDto questionType)
+        public async Task CreateQuestionTypeAsync(QuestionTypeDto modelDto)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var questionType = Common.MapDtoToQuestionType(modelDto);
+                await _cosmosDbService.CreateItemAsync<QuestionType>(questionType, _containName);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                throw;
+            }
         }
     }
 }

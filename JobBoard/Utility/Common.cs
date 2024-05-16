@@ -1,6 +1,7 @@
 ﻿using System.Reflection;
 using JobBoard.Dtos;
 using JobBoard.Models;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace JobBoard.Utility
 {
@@ -65,6 +66,104 @@ namespace JobBoard.Utility
                 Id = model.Id,
                 Type = model.Type
             };
+        }
+
+        public static List<QuestionTypeDto> MapQuestionTypesToDtos(this List<QuestionType> models)
+        {
+            return models.Select(o => new QuestionTypeDto()
+            {
+                Id = o.Id,
+                Type = o.Type,
+            }).ToList();
+        }
+
+        public static ApplicationForm MapDtoToApplicationForm(this ApplicationFormDto model)
+        {
+            var form = new ApplicationForm()
+            {
+                Id = Guid.NewGuid().ToString(),
+                FormId = Guid.NewGuid().ToString(),
+                ProgramTitle = model.ProgramTitle,
+                ProgramDescription = model.ProgramDescription,
+                Questions = model.Questions.Select(q => new Question()
+                {
+                    Id = Guid.NewGuid().ToString(),
+                    IsRequired = q.IsRequired,
+                    Content = q.Content,
+                    Type = new QuestionType()
+                    {
+                        Id = Guid.NewGuid().ToString(),
+                        Type = q.Type.Type,
+                    },
+                    Options = q.Options.Select(op => new QuestionOption()
+                    {
+                        Id = Guid.NewGuid().ToString(),
+                        Choice = op.Option
+                    }).ToList(),
+                }).ToList(),
+                AdditionalQuestions = model.AdditionalQuestions.Select(q => new Question()
+                {
+                    Id = Guid.NewGuid().ToString(),
+                    IsRequired = q.IsRequired,
+                    Content = q.Content,
+                    Type = new QuestionType()
+                    {
+                        Id = Guid.NewGuid().ToString(),
+                        Type = q.Type.Type,
+                    },
+                    Options = q.Options.Select(o => new QuestionOption()
+                    {
+                        Id = o.Id,
+                        Choice = o.Option
+
+                    }).ToList()
+                }).ToList()
+            };
+
+            return form;
+        }
+
+        public static ApplicationFormDto MapDtoToApplicationForm(this ApplicationForm model)
+        {
+            var formDto = new ApplicationFormDto()
+            {
+                ProgramTitle = model.ProgramTitle,
+                ProgramDescription = model.ProgramDescription,
+                Questions = model.Questions.Select(q => new QuestionDto()
+                {
+                    Id = q.Id,
+                    Content = q.Content,
+                    Type = new QuestionTypeDto()
+                    {
+                        Id = q.Type.Id,
+                        Type = q.Type.Type,
+                    },
+                    IsRequired = q.IsRequired,
+                    Options = q.Options.Select(o => new QuestionOptionDto()
+                    {
+                        Id = o.Id,
+                        Option = o.Choice
+                    }).ToList()
+                }).ToList(),
+                AdditionalQuestions = model.AdditionalQuestions.Select(q => new QuestionDto()
+                {
+                    Id = q.Id,
+                    Content = q.Content,
+                    Type = new QuestionTypeDto()
+                    {
+                        Id = q.Type.Id,
+                        Type = q.Type.Type,
+                    },
+                    IsRequired = q.IsRequired,
+                    Options = q.Options.Select(o => new QuestionOptionDto()
+                    {
+                        Id = o.Id,
+                        Option = o.Choice
+                    }).ToList()
+                }).ToList()
+            };
+
+            return formDto;
         }
     }
 }

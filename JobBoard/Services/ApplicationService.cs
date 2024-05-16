@@ -1,6 +1,7 @@
 ﻿using JobBoard.Dtos;
 using JobBoard.Models;
 using JobBoard.Services.Interface;
+using JobBoard.Utility;
 
 namespace JobBoard.Services
 {
@@ -23,46 +24,7 @@ namespace JobBoard.Services
         {
             try
             {
-                ApplicationForm form = new ApplicationForm()
-                {
-                    Id = Guid.NewGuid().ToString(),
-                    FormId = Guid.NewGuid().ToString(),
-                    ProgramTitle = application.ProgramTitle,
-                    ProgramDescription = application.ProgramDescription,
-                    Questions = application.Questions.Select(q => new Question()
-                    {
-                        Id = Guid.NewGuid().ToString(),
-                        IsRequired = q.IsRequired,
-                        Content = q.Content,
-                        Type = new QuestionType()
-                        {
-                            Id = Guid.NewGuid().ToString(),
-                            Type = q.Type.Type,
-                        },
-                        Options = q.Options.Select(op => new QuestionOption()
-                        {
-                            Id = Guid.NewGuid().ToString(),
-                            Choice = op.Option
-                        }).ToList(),
-                    }).ToList(),
-                    AdditionalQuestions = application.AdditionalQuestions.Select(q => new Question()
-                    {
-                        Id = Guid.NewGuid().ToString(),
-                        IsRequired = q.IsRequired,
-                        Content = q.Content,
-                        Type = new QuestionType()
-                        {
-                            Id = Guid.NewGuid().ToString(),
-                            Type = q.Type.Type,
-                        },
-                        Options = q.Options.Select(o => new QuestionOption()
-                        {
-                            Id = o.Id,
-                            Choice = o.Option
-                            
-                        }).ToList()
-                    }).ToList()
-                };
+                ApplicationForm form = Common.MapDtoToApplicationForm(application);
                 var resp = await _cosmosDbService.CreateItemAsync<ApplicationForm>(form, _containName);
             }
             catch (Exception e)
@@ -84,43 +46,7 @@ namespace JobBoard.Services
                 if (resp is null)
                     return null;
 
-                formDto = new ApplicationFormDto()
-                {
-                    ProgramTitle = resp.ProgramTitle,
-                    ProgramDescription = resp.ProgramDescription,
-                    Questions = resp.Questions.Select(q => new QuestionDto()
-                    {
-                        Id = q.Id,
-                        Content = q.Content,
-                        Type = new QuestionTypeDto()
-                        {
-                            Id = q.Type.Id,
-                            Type = q.Type.Type,
-                        },
-                        IsRequired = q.IsRequired,
-                        Options = q.Options.Select(o => new QuestionOptionDto()
-                        {
-                            Id = o.Id,
-                            Option = o.Choice
-                        }).ToList()
-                    }).ToList(),
-                    AdditionalQuestions = resp.AdditionalQuestions.Select(q => new QuestionDto()
-                    {
-                        Id = q.Id,
-                        Content = q.Content,
-                        Type = new QuestionTypeDto()
-                        {
-                            Id = q.Type.Id,
-                            Type = q.Type.Type,
-                        },
-                        IsRequired = q.IsRequired,
-                        Options = q.Options.Select(o => new QuestionOptionDto()
-                        {
-                            Id = o.Id,
-                            Option = o.Choice
-                        }).ToList()
-                    }).ToList()
-                };
+                formDto = Common.MapDtoToApplicationForm(resp);
             }
             catch (Exception e)
             {
