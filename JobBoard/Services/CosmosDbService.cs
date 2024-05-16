@@ -4,15 +4,20 @@ using Microsoft.Azure.Cosmos;
 
 namespace JobBoard.Services
 {
-    public class CosmosDbService<T> : ICosmosDbService<T> where T : class
+    public class CosmosDbService: ICosmosDbService
     {
+        private readonly IConfiguration _configuration;
         private readonly CosmosClient _cosmosClient;
         private readonly string _databaseName;
+        private readonly string _connectionString;
 
-        public CosmosDbService(string connectionString, string databaseName)
+        public CosmosDbService(string databaseName, IConfiguration configuration)
         {
-            _cosmosClient = new CosmosClient(connectionString);
-            _databaseName = databaseName;
+            _configuration = configuration;
+
+            _connectionString = _configuration.GetSection("CosmoDB:ConnectionString").Value;
+            _cosmosClient = new CosmosClient(_connectionString);
+            _databaseName = _configuration.GetSection("CosmoDB:DatabaseName").Value;
         }
 
         public async Task<T> CreateItemAsync<T>(T item, string containerName)
