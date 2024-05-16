@@ -35,12 +35,12 @@ namespace JobBoard.Utility
                 Id = Guid.NewGuid().ToString(),
                 Content = model.Content,
                 IsRequired = model.IsRequired,
-                Type = new QuestionType()
+                Type = model.Type is null ? null : new QuestionType()
                 {
                     Id = Guid.NewGuid().ToString(),
                     Type = model.Type.Type,
                 },
-                Options = model.Options.Select(o => new QuestionOption()
+                Options = model.Options is null ? null : model.Options.Select(o => new QuestionOption()
                 {
                     Id = Guid.NewGuid().ToString(),
                     Choice = o.Option

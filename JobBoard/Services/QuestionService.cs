@@ -22,7 +22,7 @@ namespace JobBoard.Services
             _configuration = configuration;
             _logger = logger;
 
-            _containName = _configuration.GetSection("CosmoDB:ContainerName").Value;
+            _containName = _configuration.GetSection("CosmoDB:ContainerName").Value ?? string.Empty;
         }
 
 
