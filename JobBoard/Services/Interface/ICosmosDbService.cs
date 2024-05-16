@@ -1,4 +1,6 @@
-﻿namespace JobBoard.Services.Interface
+﻿using Microsoft.Azure.Cosmos;
+
+namespace JobBoard.Services.Interface
 {
     public interface ICosmosDbService
     {
@@ -6,5 +8,7 @@
         Task<T> UpdateItemAsync<T>(string id, T item, string containerName);
         Task<T> GetItemAsync<T>(string id, string partitionKey, string containerName);
         Task<bool> DeleteItemAsync(string id, string containerName);
+
+        Task<Container> GetContainerAsync(string containerName);
     }
 }

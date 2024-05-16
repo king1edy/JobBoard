@@ -68,6 +68,7 @@ namespace JobBoard.Services
             catch (Exception e)
             {
                 Console.WriteLine(e);
+                _logger.LogInformation(null, e, e.Message);
                 throw;
             }
 
@@ -79,7 +80,7 @@ namespace JobBoard.Services
             ApplicationFormDto formDto = new ApplicationFormDto();
             try
             {
-                var resp = await _cosmosDbService.GetItemAsync<ApplicationForm>(id, "", _containName);
+                var resp = await _cosmosDbService.GetItemAsync<ApplicationForm>(id, "/application", _containName);
                 if (resp is null)
                     return null;
 
@@ -124,7 +125,7 @@ namespace JobBoard.Services
             catch (Exception e)
             {
                 Console.WriteLine(e);
-                throw;
+                _logger.LogInformation(null, e, e.Message);
             }
 
             return formDto;

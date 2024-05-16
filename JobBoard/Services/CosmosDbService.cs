@@ -1,4 +1,6 @@
 ﻿using System.Collections.Concurrent;
+using System.Collections.Generic;
+using JobBoard.Models;
 using JobBoard.Services.Interface;
 using Microsoft.Azure.Cosmos;
 
@@ -6,18 +8,31 @@ namespace JobBoard.Services
 {
     public class CosmosDbService: ICosmosDbService
     {
-        private readonly IConfiguration _configuration;
+        public Container Container;
         private readonly CosmosClient _cosmosClient;
+        private readonly IConfiguration _configuration;
+
         private readonly string _databaseName;
         private readonly string _connectionString;
+        private readonly string _containerName;
 
         public CosmosDbService(string databaseName, IConfiguration configuration)
         {
             _configuration = configuration;
-
             _connectionString = _configuration.GetSection("CosmoDB:ConnectionString").Value;
-            _cosmosClient = new CosmosClient(_connectionString);
             _databaseName = _configuration.GetSection("CosmoDB:DatabaseName").Value;
+            _containerName = configuration.GetSection("CosmoDB:ContainerName").Value;
+
+            var options = new CosmosClientOptions()
+            {
+                SerializerOptions = new CosmosSerializationOptions()
+                {
+                    PropertyNamingPolicy = CosmosPropertyNamingPolicy.CamelCase
+                }
+            };
+            _cosmosClient = new CosmosClient(_connectionString, options);
+            var database = _cosmosClient.CreateDatabaseIfNotExistsAsync(databaseName).Result;
+            Container = database.Database.CreateContainerIfNotExistsAsync(_containerName, "/id").Result;
         }
 
         public async Task<T> CreateItemAsync<T>(T item, string containerName)
@@ -48,6 +63,7 @@ namespace JobBoard.Services
             }
         }
 
+
         public async Task<bool> DeleteItemAsync(string id, string containerName)
         {
             var container = _cosmosClient.GetContainer(_databaseName, containerName);
@@ -60,6 +76,11 @@ namespace JobBoard.Services
             {
                 return false;
             }
+        }
+
+        public async Task<Container> GetContainerAsync(string containerName)
+        {
+            return Container;
         }
     }
 }
